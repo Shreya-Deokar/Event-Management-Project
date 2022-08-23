@@ -81,7 +81,7 @@ public class AddCater extends HttpServlet
 					}
 					
 					Class.forName("org.postgresql.Driver");
-					Connection con = DriverManager.getConnectio("jdbc:postgresql://localhost:5432/eventmanage","postgres","mcasc05");
+					Connection con = DriverManager.getConnectio("database path","databse","password");
 					Statement stmt = con.createStatement();
 					ResultSet rs1 = null;
 					ResultSet rs2 = null;

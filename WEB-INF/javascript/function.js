@@ -1,0 +1,1 @@
+alert("Data Inserted Successfully");

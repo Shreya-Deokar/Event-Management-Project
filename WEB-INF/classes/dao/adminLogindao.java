@@ -1,0 +1,60 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
+public class adminLogindao {
+    public static boolean validate(String mail, String pass) {        
+        boolean status = false;
+        Connection conn = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+
+        String url = "jdbc:postgresql://localhost:5432/";
+        String dbName = "eventmanage";
+        String driver = "org.postgresql.Driver";
+        String userName = "postgres";
+        String password = "mcasc05";
+        try {
+            Class.forName(driver).newInstance();
+            conn = DriverManager
+                    .getConnection(url + dbName, userName, password);
+
+            pst = conn
+                    .prepareStatement("select * from Admin where admin_mail='"+mail+"' and password='"+pass+"'");
+
+            rs = pst.executeQuery();
+            status = rs.next();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (pst != null) {
+                try {
+                    pst.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return status;
+    }
+}

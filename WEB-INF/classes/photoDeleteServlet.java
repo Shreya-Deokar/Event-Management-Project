@@ -44,7 +44,7 @@ public class photoDeleteServlet extends HttpServlet
 
 					String query = "delete from Item where pname = '"+name+"' and pid = '"+id+"'";
 					Class.forName("org.postgresql.Driver");
-					Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/eventmanage","postgres","mcasc05");
+					Connection con = DriverManager.getConnection("database path","databse","password");
 					Statement stmt = con.createStatement();
 					stmt.executeUpdate(query);
 				

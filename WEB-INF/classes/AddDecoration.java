@@ -79,7 +79,7 @@ public class AddDecoration extends HttpServlet
 					}
 					
 					Class.forName("org.postgresql.Driver");
-					Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/eventmanage","postgres","mcasc05");
+					Connection con = DriverManager.getConnection("database path","databse","password");
 					Statement stmt = con.createStatement();
 					ResultSet rs1 = null;
 					ResultSet rs2 = null;

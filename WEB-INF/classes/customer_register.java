@@ -49,7 +49,7 @@ public class customer_register extends HttpServlet
 			String cnumber = request.getParameter("C_Number");
 
 					Class.forName("org.postgresql.Driver");
-					Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/eventmanage","postgres","mcasc05");
+					Connection con = DriverManager.getConnection("database path","databse","password");
 					Statement stmt = con.createStatement();
 					
 					String query = "insert into Customer(CNAME,CMAIL,CPHONE,CADDRESS,CPASSWORD,CBOOK,CFLOWER,CNUMBER) values('"+cname+"','"+cmail+"','"+cphone+"','"+caddress+"','"+cpassword+"','"+cbook+"','"+cflower+"','"+cnumber+"')";

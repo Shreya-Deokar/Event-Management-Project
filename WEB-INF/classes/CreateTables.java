@@ -15,7 +15,7 @@ public class CreateTables
 		{
 			
 			Class.forName("org.postgresql.Driver");
-			c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/eventmanage","postgres", "mcasc05");
+			c = DriverManager.getConnection("database path","databse","password");
 			System.out.println("Opened database successfully");
 			stmt = c.createStatement();
 			/*String sql = "CREATE TABLE VENUE " +
